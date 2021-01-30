@@ -102,7 +102,7 @@ while True:
         yellowp.append(deque(maxlen=512))
         yellow_index += 1
 
-// Draws line of colours(Blue, red, grren, yellow)        
+# Draws line of colours(Blue, red, grren, yellow)        
     points = [bluep, greenp, redp, yellowp]
     for i in range(len(points)):
         for j in range(len(points[i])):
@@ -110,11 +110,11 @@ while True:
                 if points[i][j][k-1] is None or points[i][j][k] is None:
                     continue
                 cv2.line(image1, points[i][j][k-1], points[i][j][k], colors[i], 2)
-// show the image1 image                
+# show the image1 image                
     cv2.imshow("Air Doodle", image1)
     
-// if the q key is presed, the loop stops
+# if the q key is presed, the loop stops
     if cv2.waitKey(35) & 0xff == ord('q'):
         break
-// Cleanup Code
+# Cleanup Code
 cap.release()
