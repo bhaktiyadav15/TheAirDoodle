@@ -1,3 +1,4 @@
+#importing necessary libraries
 import numpy as np
 import cv2
 from collections import deque
@@ -5,6 +6,7 @@ import random
 
 
 # giving different arrays to handle colour points of different color
+# initializing deques to stor colours in the below mentioned arrays
 bluep = [deque(maxlen=1024)]
 redp = [deque(maxlen=1024)]
 greenp = [deque(maxlen=1024)]
@@ -16,7 +18,7 @@ blue_index = 0
 green_index = 0
 yellow_index = 0
 
-# this is used to dilate the image
+# this 5x5 kernal is used to dilate the image and  for smoothing the orange object ones found
 kernel = np.ones((5, 5), np.uint8)
 
 # red, green, blue, yellow
