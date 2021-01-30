@@ -110,8 +110,9 @@ while True:
                     continue
                 cv2.line(image1, points[i][j][k-1], points[i][j][k], colors[i], 2)
     cv2.imshow("Air Doodle", image1)
-
+    
+// if the q key is presed, the loop stops
     if cv2.waitKey(35) & 0xff == ord('q'):
         break
-
+// Cleanup Code
 cap.release()
