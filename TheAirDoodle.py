@@ -25,6 +25,7 @@ kernel = np.ones((5, 5), np.uint8)
 colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (0, 255, 255)]
 colorIndex = 0
 
+# loading the video(frame by frame)
 cap = cv2.VideoCapture(0)
 list_words = ['Kite', 'Fish', 'Snowflake', 'Dog', 'Duck', 'Flower', 'Panda', 'Book',
               'Pencil', 'Pen', 'Hut', 'Mountain', 'Star', 'Pond', 'Moon', 'Tree',
@@ -41,6 +42,7 @@ while True:
     lower = np.array([0, 99, 158])
     upper = np.array([10, 255, 233])
 
+# drawing boxes like coloured rectangles      
     image1 = cv2.rectangle(image1, (50, 30), (110, 80), (0, 0, 0), -1)
     image1 = cv2.rectangle(image1, (120, 30), (170, 80), colors[0], -1)
     image1 = cv2.rectangle(image1, (180, 30), (230, 80), colors[1], -1)
@@ -54,10 +56,11 @@ while True:
     Mask = cv2.erode(Mask, kernel, iterations=1)
     Mask = cv2.morphologyEx(Mask, cv2.MORPH_OPEN, kernel)
     Mask = cv2.dilate(Mask, kernel, iterations=1)
-
+# finding the contours of the image
     contours, heirc = cv2.findContours(Mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     center = None
 
+#check to see if any contours( orange coloured stuff) was found
     if len(contours) > 0:
         contours = sorted(contours, key=cv2.contourArea, reverse=True)[0]
         ((x, y), radius) = cv2.minEnclosingCircle(contours)
