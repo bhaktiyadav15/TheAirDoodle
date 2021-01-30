@@ -4,10 +4,6 @@ from collections import deque
 import random
 
 
-def empty(a):
-    pass
-
-
 # giving different arrays to handle colour points of different color
 bluep = [deque(maxlen=1024)]
 redp = [deque(maxlen=1024)]
